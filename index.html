@@ -1,45 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EPG Landing Page</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EPG Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
+<body class="min-h-screen bg-slate-950 text-white">
+  <header class="sticky top-0 z-20 border-b border-slate-300/70 bg-slate-200/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4 lg:px-10">
+      <img
+        src="https://files.constantcontact.com/0dd54850201/55b8a61b-d345-458b-9331-2dbb574b77db.png"
+        alt="Elite Producer Group by Simplicity Group"
+        class="h-14 w-auto md:h-16"
+      />
+      <a
+        href="#assessment"
+        class="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-500"
+      >
+        Take the Assessment
+      </a>
+    </div>
+  </header>
 
-<body class="bg-slate-950 text-white">
+  <main>
+    <section class="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.22),_transparent_28%),linear-gradient(180deg,#020617_0%,#0f172a_100%)]">
+      <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:py-24">
+        <div>
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-blue-300">Elite Producer Group by Simplicity Group</p>
+          <h1 class="max-w-3xl text-4xl font-semibold leading-tight text-white md:text-6xl">
+            Most producers don’t realize what they’re missing, do you?
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            Most producers operate without access to the relationships and infrastructure that drive meaningful growth.
+            Elite Producer Group provides direct access to carrier partners, along with underwriting expertise, advanced case design resources,
+            and competitive compensation structures for top-tier producers.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="#assessment"
+              class="rounded-full bg-blue-500 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-400"
+            >
+              Take the Assessment
+            </a>
+            <a
+              href="#value"
+              class="rounded-full border border-white/15 px-6 py-3 font-semibold text-slate-100 transition hover:border-blue-300 hover:text-blue-200"
+            >
+              See What EPG Delivers
+            </a>
+          </div>
+        </div>
 
-<header class="bg-slate-200 border-b">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-    <img src="https://files.constantcontact.com/0dd54850201/55b8a61b-d345-458b-9331-2dbb574b77db.png" class="h-14">
-    <a href="#assessment" class="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold">Take the Assessment</a>
-  </div>
-</header>
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-blue-950/40 backdrop-blur">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-300">Who this is for</p>
+          <h2 class="mt-3 text-2xl font-semibold text-white">Built for life insurance producers who are already producing and want a sharper edge.</h2>
+          <div class="mt-6 space-y-3">
+            <div class="flex items-start gap-3 rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-slate-200">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-400"></span>
+              <span>Life insurance producers serving affluent and HNW clients</span>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-slate-200">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-400"></span>
+              <span>Independent advisors writing meaningful premium</span>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-slate-200">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-400"></span>
+              <span>Practices handling complex underwriting and design work</span>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-slate-200">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-400"></span>
+              <span>Producers looking for sharper leverage, not more noise</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="max-w-7xl mx-auto px-6 py-16">
-  <h1 class="text-5xl font-semibold">Most producers don’t realize what they’re missing, do you?</h1>
-  <p class="mt-6 text-slate-300 max-w-2xl">
-    Most producers operate without access to the relationships and infrastructure that drive meaningful growth.
-    Elite Producer Group provides direct access to carrier partners, along with underwriting expertise, advanced case design resources, and competitive compensation structures for top-tier producers.
-  </p>
-</section>
+    <section id="value" class="border-b border-white/10 bg-slate-900">
+      <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-300">What EPG membership delivers</p>
+          <h2 class="mt-3 text-3xl font-semibold text-white md:text-4xl">What top producers gain access to inside EPG</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">
+            Elite Producer Group is built to give independent life insurance producers access to the same level of support,
+            relationships, and infrastructure typically reserved for the largest firms. From case design to underwriting to carrier access,
+            EPG helps you compete and win at a higher level.
+          </p>
+        </div>
 
-<section id="assessment" class="max-w-5xl mx-auto px-6 py-16">
-  <h2 class="text-3xl font-semibold mb-6">Assessment</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-2">
+          <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-6 shadow-xl shadow-slate-950/30">
+            <div class="mb-4 inline-flex rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-blue-200">
+              EPG Advantage
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Carrier Access</h3>
+            <p class="mt-4 leading-7 text-slate-300">
+              Direct access to key carrier partners, advanced markets teams, and decision-makers who can help move complex cases forward more efficiently.
+            </p>
+          </div>
 
-  <div id="quiz"></div>
+          <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-6 shadow-xl shadow-slate-950/30">
+            <div class="mb-4 inline-flex rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-blue-200">
+              EPG Advantage
+            </div>
+            <h3 class="text-2xl font-semibold text-white">In-House Underwriting Team</h3>
+            <p class="mt-4 leading-7 text-slate-300">
+              Direct access to experienced, on-staff underwriters with carrier-side backgrounds. They review medical records and APS details,
+              provide practical carrier guidance, help craft cover letters, and actively position and advocate for your cases to achieve better outcomes.
+            </p>
+          </div>
 
-  <div id="result" class="hidden bg-slate-800 p-6 rounded-2xl mt-10">
-    <h3 class="text-xl font-semibold">You appear to be a strong fit for Elite Producer Group.</h3>
-    <input placeholder="Name" class="w-full p-3 rounded bg-slate-900 mt-4">
-    <input placeholder="Email" class="w-full p-3 rounded bg-slate-900 mt-2">
-    <input placeholder="Phone" class="w-full p-3 rounded bg-slate-900 mt-2">
-    <button class="mt-4 bg-blue-600 px-5 py-3 rounded w-full">Download My Assessment</button>
-  </div>
+          <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-6 shadow-xl shadow-slate-950/30">
+            <div class="mb-4 inline-flex rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-blue-200">
+              EPG Advantage
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Technology &amp; Software Platform</h3>
+            <p class="mt-4 leading-7 text-slate-300">
+              Access to Simplicity’s suite of proprietary tools and platforms, including LifeLink™ for quoting and comparisons,
+              marketing programs like Ensight, and training through Simplicity University. These resources are designed to help you
+              educate clients, streamline the sales process, and confidently deliver solutions.
+            </p>
+          </div>
 
-</section>
+          <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-6 shadow-xl shadow-slate-950/30">
+            <div class="mb-4 inline-flex rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-blue-200">
+              EPG Advantage
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Economics &amp; Growth</h3>
+            <p class="mt-4 leading-7 text-slate-300">
+              Competitive compensation structures and growth-focused resources designed to help you scale your business without sacrificing independence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script src="script.js"></script>
+    <section id="assessment" class="bg-[linear-gradient(180deg,#0f172a_0%,#111827_100%)]">
+      <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-300">Your assessment</p>
+          <h2 class="mt-3 text-3xl font-semibold text-white md:text-4xl">The Elite Producer Advantage Assessment</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">
+            This short assessment is designed to help identify where additional support, access, and infrastructure could improve
+            your ability to place business, grow revenue, and compete more effectively.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+          <div class="rounded-3xl border border-white/10 bg-slate-950 p-7 shadow-2xl shadow-slate-950/40">
+            <div class="mb-8 flex items-center justify-between gap-4">
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-300">Assessment experience</p>
+                <h3 class="mt-2 text-2xl font-semibold text-white">Answer the questions below</h3>
+              </div>
+              <div class="rounded-full border border-blue-400/25 bg-blue-500/10 px-4 py-2 text-sm font-semibold text-blue-200">6 Questions</div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="rounded-3xl border border-white/10 bg-slate-900/70 p-5 question-group">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Question 1</p>
+                <h4 class="mt-2 text-lg font-medium text-white">How much life insurance premium did you personally place over the past 12 months?</h4>
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Under $250,000</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">$250,000 to $1 million</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">$1 million to $3 million</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">$3 million+</button>
+                </div>
+              </div>
+
+              <div class="rounded-3xl border border-white/10 bg-slate-900/70 p-5 question-group">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Question 2</p>
+                <h4 class="mt-2 text-lg font-medium text-white">How often do your cases require advanced underwriting, estate planning coordination, or complex design support?</h4>
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Rarely</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Sometimes</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Often</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Very often</button>
+                </div>
+              </div>
+
+              <div class="rounded-3xl border border-white/10 bg-slate-900/70 p-5 question-group">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Question 3</p>
+                <h4 class="mt-2 text-lg font-medium text-white">How would you rate your current access to top carrier relationships and decision-makers?</h4>
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Limited</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Adequate</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Strong</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Best-in-class</button>
+                </div>
+              </div>
+
+              <div class="rounded-3xl border border-white/10 bg-slate-900/70 p-5 question-group">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Question 4</p>
+                <h4 class="mt-2 text-lg font-medium text-white">How well does your current platform support you with case design, operations, and producer economics?</h4>
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Below expectations</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Somewhat effective</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Strong</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Exceptional</button>
+                </div>
+              </div>
+
+              <div class="rounded-3xl border border-white/10 bg-slate-900/70 p-5 question-group">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Question 5</p>
+                <h4 class="mt-2 text-lg font-medium text-white">What level of support do you currently have when it comes to marketing, lead generation, and client education tools?</h4>
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Limited</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Some resources</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Strong support</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Fully integrated platform</button>
+                </div>
+              </div>
+
+              <div class="rounded-3xl border border-white/10 bg-slate-900/70 p-5 question-group">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Question 6</p>
+                <h4 class="mt-2 text-lg font-medium text-white">What is your primary goal in exploring a group like EPG?</h4>
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Increase revenue</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Improve case support</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Expand capabilities</button>
+                  <button type="button" class="quiz-option rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-left text-slate-200 transition hover:border-blue-400/60 hover:bg-blue-500/10 hover:text-white">Evaluate all of the above</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur h-fit lg:sticky lg:top-24">
+            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-300">Your result</p>
+            <h3 class="mt-3 text-2xl font-semibold text-white">You appear to be a strong fit for Elite Producer Group.</h3>
+            <p class="mt-4 leading-7 text-slate-300">
+              Complete the short form below to receive your assessment result and next-step overview.
+            </p>
+
+            <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <input class="rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-white outline-none ring-0 placeholder:text-slate-500" placeholder="First name" />
+              <input class="rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-white outline-none ring-0 placeholder:text-slate-500" placeholder="Last name" />
+              <input class="rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-white outline-none ring-0 placeholder:text-slate-500 md:col-span-2 lg:col-span-1 xl:col-span-2" placeholder="Email" />
+              <input class="rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-white outline-none ring-0 placeholder:text-slate-500 md:col-span-2 lg:col-span-1 xl:col-span-2" placeholder="Phone" />
+            </div>
+
+            <button class="mt-6 w-full rounded-2xl bg-blue-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-400">
+              Download My Assessment
+            </button>
+            <p class="mt-4 text-sm leading-6 text-slate-400">Your information is kept confidential. No spam, no obligation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 bg-slate-950">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+      <p>Elite Producer Group — A Simplicity Group Program</p>
+      <p>Demo concept for layout cleanup and brand refinement</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
