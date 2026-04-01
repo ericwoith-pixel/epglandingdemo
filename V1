@@ -1,0 +1,586 @@
+import { useMemo, useState } from "react";
+
+const questions = [
+  {
+    id: "underwriting",
+    prompt:
+      "How would you rate your current ability to influence underwriting outcomes on larger or more complex life insurance cases?",
+    options: [
+      {
+        label:
+          "Limited ability to influence outcomes, mostly submitting business as-is",
+        score: 1,
+      },
+      {
+        label:
+          "Occasional influence, but dependent on the carrier or situation",
+        score: 2,
+      },
+      {
+        label: "Consistent ability to position and improve many cases",
+        score: 3,
+      },
+      {
+        label:
+          "Strong influence with advanced underwriting support and carrier access",
+        score: 4,
+      },
+    ],
+  },
+  {
+    id: "carrier-access",
+    prompt:
+      "How strong is your access to carrier decision-makers when a case needs creative positioning or fast escalation?",
+    options: [
+      {
+        label: "Mostly standard channels with limited escalation access",
+        score: 1,
+      },
+      {
+        label: "Some access, but it varies a lot by carrier",
+        score: 2,
+      },
+      {
+        label: "Reliable access for many important cases",
+        score: 3,
+      },
+      {
+        label: "Strong, repeatable access that helps move business",
+        score: 4,
+      },
+    ],
+  },
+  {
+    id: "case-design",
+    prompt:
+      "How confident are you in your current resources for advanced case design, specialty markets, and large-case strategy?",
+    options: [
+      {
+        label:
+          "I mostly rely on my own process or whatever the carrier provides",
+        score: 1,
+      },
+      {
+        label: "I have some outside help, but it is not consistent",
+        score: 2,
+      },
+      {
+        label: "I have dependable support on many advanced opportunities",
+        score: 3,
+      },
+      {
+        label:
+          "I have strong strategic support across advanced and specialty cases",
+        score: 4,
+      },
+    ],
+  },
+  {
+    id: "economics",
+    prompt:
+      "How competitive do you believe your current platform is on producer economics and overall value delivered to your practice?",
+    options: [
+      {
+        label: "I suspect I am leaving meaningful value on the table",
+        score: 1,
+      },
+      {
+        label:
+          "I am reasonably competitive, but I have not pressure-tested it recently",
+        score: 2,
+      },
+      {
+        label: "I feel strong about the economics in most areas",
+        score: 3,
+      },
+      {
+        label:
+          "I believe my current structure is highly competitive and well supported",
+        score: 4,
+      },
+    ],
+  },
+  {
+    id: "growth",
+    prompt:
+      "How well does your current platform support business growth through ideas, peer collaboration, events, and strategic planning resources?",
+    options: [
+      {
+        label: "Very little formal growth support beyond day-to-day production",
+        score: 1,
+      },
+      {
+        label: "Some support exists, but it is limited or inconsistent",
+        score: 2,
+      },
+      {
+        label: "There is solid support in several areas",
+        score: 3,
+      },
+      {
+        label: "Growth support is a real strength of my current model",
+        score: 4,
+      },
+    ],
+  },
+  {
+    id: "overall-fit",
+    prompt:
+      "Overall, how effective is your current platform in helping you win and retain high-value business?",
+    options: [
+      {
+        label: "Less support than I would like",
+        score: 1,
+      },
+      {
+        label: "Some support, but clear gaps remain",
+        score: 2,
+      },
+      {
+        label: "A strong platform with a few areas to improve",
+        score: 3,
+      },
+      {
+        label: "A highly effective platform that supports my business well",
+        score: 4,
+      },
+    ],
+  },
+];
+
+const audience = [
+  "Affluent & HNW clients",
+  "Complex case work",
+  "Independent advisors",
+  "Growth-minded producers",
+];
+
+const benefits = [
+  {
+    title: "Carrier Access That Actually Moves Cases",
+    body: "Gain stronger access to senior underwriters, key carrier relationships, and product specialists who can help position cases more effectively and move business with greater confidence.",
+  },
+  {
+    title: "Advanced Underwriting & Case Consultation",
+    body: "Pre-screen challenging opportunities, evaluate carrier fit, and refine submission strategy before going formal, especially on larger or more nuanced life cases.",
+  },
+  {
+    title: "Large Case, Advanced Planning & Specialty Support",
+    body: "Bring in additional horsepower for premium finance, business succession, estate planning, advanced underwriting, and other complex market opportunities without adding internal overhead.",
+  },
+  {
+    title: "Member Value Beyond Compensation",
+    body: "EPG is built to help producers grow through stronger economics, sharper ideas, peer collaboration, strategic events, and practical business-building resources.",
+  },
+];
+
+const outcomes = [
+  "Carrier access",
+  "Case support",
+  "Advanced planning",
+  "Producer economics",
+  "Business growth",
+  "Member advantages",
+];
+
+function getResultContent(score) {
+  if (score <= 10) {
+    return {
+      title: "There may be meaningful opportunity being missed.",
+      body: "Your responses suggest there may be real opportunity to strengthen underwriting influence, carrier access, case design support, and overall business positioning. EPG may be worth evaluating more closely.",
+      accent: "text-amber-300",
+    };
+  }
+
+  if (score <= 17) {
+    return {
+      title:
+        "Your platform may be solid, but there are likely gaps worth pressure-testing.",
+      body: "You appear to have some meaningful support in place, but there may still be opportunities to improve access, economics, advanced planning support, or overall producer value.",
+      accent: "text-sky-300",
+    };
+  }
+
+  return {
+    title: "You appear to have a strong foundation in place.",
+    body: "Your responses suggest strength in several key areas. Even so, EPG may still offer a useful benchmark if you want to compare your current model against other high-level producer platforms.",
+    accent: "text-emerald-300",
+  };
+}
+
+export default function EpgLandingPageDemo() {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answers, setAnswers] = useState(Array(questions.length).fill(null));
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    firm: "",
+  });
+
+  const progress =
+    ((currentQuestion + (submitted ? 1 : 0)) / questions.length) * 100;
+  const selectedAnswer = answers[currentQuestion];
+  const totalScore = useMemo(
+    () => answers.reduce((sum, value) => sum + (value?.score || 0), 0),
+    [answers]
+  );
+  const allQuestionsAnswered = answers.every(Boolean);
+  const result = getResultContent(totalScore);
+
+  function handleSelect(option) {
+    const nextAnswers = [...answers];
+    nextAnswers[currentQuestion] = option;
+    setAnswers(nextAnswers);
+  }
+
+  function handleNext() {
+    if (!selectedAnswer) return;
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion((prev) => prev + 1);
+      return;
+    }
+    setSubmitted(true);
+  }
+
+  function handleBack() {
+    if (submitted) {
+      setSubmitted(false);
+      setCurrentQuestion(questions.length - 1);
+      return;
+    }
+    if (currentQuestion > 0) {
+      setCurrentQuestion((prev) => prev - 1);
+    }
+  }
+
+  function handleRestart() {
+    setAnswers(Array(questions.length).fill(null));
+    setCurrentQuestion(0);
+    setSubmitted(false);
+  }
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5">
+          <div className="flex items-center gap-4">
+            <img
+              src="https://files.constantcontact.com/0dd54850201/55b8a61b-d345-458b-9331-2dbb574b77db.png"
+              alt="Elite Producer Group by Simplicity Group"
+              className="h-12 w-auto md:h-14"
+            />
+          </div>
+          <a
+            href="#assessment"
+            className="rounded-2xl bg-sky-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800"
+          >
+            Take the Assessment
+          </a>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-b from-slate-100 to-white">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+          <div className="max-w-3xl">
+            <div className="mb-4 inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-sky-800">
+              Elite Producer Advantage
+            </div>
+            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-slate-950 md:text-6xl">
+              Most producers don’t realize what they’re missing. Do you?
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
+              The Elite Producer Group is built for independent producers who
+              want more support in underwriting, stronger carrier access, better
+              case design support, and practical ways to grow revenue while
+              staying independent.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#assessment"
+                className="rounded-2xl bg-sky-700 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800"
+              >
+                Take the Assessment
+              </a>
+              <a
+                href="#membership"
+                className="rounded-2xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+              >
+                See What EPG Delivers
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="grid gap-6 md:grid-cols-[1.1fr,0.9fr] md:items-start">
+          <div>
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-800">
+              Who this is for
+            </div>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+              Built for established producers who want more capability without
+              giving up independence.
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+              EPG is designed for producers serving affluent and high-net-worth
+              clients, writing meaningful life business, and looking for a
+              stronger platform for underwriting, advanced planning, product
+              positioning, and strategic growth.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {audience.map((item) => (
+              <div
+                key={item}
+                className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"
+              >
+                <div className="text-sm font-semibold text-slate-900">
+                  {item}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="membership" className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="max-w-2xl">
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-800">
+              What EPG membership delivers
+            </div>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+              More support for producers. More value for your practice.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              From underwriting support and advanced case strategy to peer
+              collaboration and member programming, EPG is structured to help
+              top producers do more, solve more, and capture more opportunity.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {benefits.map((benefit, i) => (
+              <div
+                key={benefit.title}
+                className="rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-sm"
+              >
+                <div className="text-sm font-semibold text-sky-800">
+                  0{i + 1}
+                </div>
+                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
+                  {benefit.title}
+                </h3>
+                <p className="mt-4 text-base leading-7 text-slate-600">
+                  {benefit.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="assessment" className="mx-auto max-w-6xl px-6 py-16">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr,1.05fr]">
+          <div className="rounded-[2rem] bg-slate-900 p-8 text-white shadow-sm">
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
+              The assessment
+            </div>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+              The Elite Producer Advantage Assessment
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-300">
+              A structured assessment designed around how EPG evaluates a
+              producer’s platform: underwriting influence, carrier access, case
+              design capability, advanced planning, and overall business
+              positioning.
+            </p>
+
+            <div className="mt-8 rounded-3xl border border-slate-700 bg-slate-950/40 p-6">
+              <div className="flex items-center justify-between text-sm text-slate-300">
+                <span>
+                  {submitted
+                    ? "Assessment Complete"
+                    : `Question ${currentQuestion + 1} of ${questions.length}`}
+                </span>
+                <span>{Math.round(progress)}% Complete</span>
+              </div>
+              <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-800">
+                <div
+                  className="h-full rounded-full bg-sky-400 transition-all duration-300"
+                  style={{
+                    width: `${
+                      submitted
+                        ? 100
+                        : ((currentQuestion + 1) / questions.length) * 100
+                    }%`,
+                  }}
+                />
+              </div>
+
+              {!submitted ? (
+                <>
+                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-white">
+                    {questions[currentQuestion].prompt}
+                  </h3>
+                  <div className="mt-5 grid gap-3">
+                    {questions[currentQuestion].options.map((choice) => {
+                      const isSelected = selectedAnswer?.label === choice.label;
+                      return (
+                        <button
+                          key={choice.label}
+                          type="button"
+                          onClick={() => handleSelect(choice)}
+                          className={`rounded-2xl border px-4 py-3 text-left text-sm leading-6 transition ${
+                            isSelected
+                              ? "border-sky-400 bg-sky-500/10 text-white"
+                              : "border-slate-700 text-slate-200 hover:border-slate-500 hover:bg-white/5"
+                          }`}
+                        >
+                          {choice.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <div className="mt-6 flex gap-3">
+                    <button
+                      type="button"
+                      onClick={handleBack}
+                      disabled={currentQuestion === 0}
+                      className="rounded-2xl border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-300 transition disabled:cursor-not-allowed disabled:opacity-40 hover:border-slate-500 hover:bg-white/5"
+                    >
+                      Back
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNext}
+                      disabled={!selectedAnswer}
+                      className="rounded-2xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-40 hover:bg-sky-500"
+                    >
+                      {currentQuestion === questions.length - 1
+                        ? "See Results"
+                        : "Next"}
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="mt-6 rounded-3xl border border-slate-700 bg-slate-900/70 p-6">
+                    <div className="text-sm uppercase tracking-[0.18em] text-slate-400">
+                      Your assessment result
+                    </div>
+                    <div
+                      className={`mt-3 text-2xl font-semibold ${result.accent}`}
+                    >
+                      {result.title}
+                    </div>
+                    <p className="mt-4 text-base leading-7 text-slate-300">
+                      {result.body}
+                    </p>
+                    <div className="mt-5 text-sm text-slate-400">
+                      Score: {totalScore} out of 24
+                    </div>
+                  </div>
+                  <div className="mt-6 flex gap-3">
+                    <button
+                      type="button"
+                      onClick={handleBack}
+                      className="rounded-2xl border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-300 transition hover:border-slate-500 hover:bg-white/5"
+                    >
+                      Review Answers
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleRestart}
+                      className="rounded-2xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-500"
+                    >
+                      Start Over
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className="mt-6 grid grid-cols-2 gap-4 text-sm text-slate-300">
+              {outcomes.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-slate-700 px-4 py-3"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-800">
+              Call to action
+            </div>
+            <h3 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
+              Request your Elite Producer Advantage assessment.
+            </h3>
+            <p className="mt-4 text-base leading-7 text-slate-600">
+              Receive a personalized report with practical observations,
+              category-by-category insight, and a clearer view of where EPG may
+              help strengthen your business.
+            </p>
+            <form className="mt-8 grid gap-4">
+              <input
+                className="h-12 rounded-2xl border border-slate-300 px-4 text-sm outline-none ring-0 placeholder:text-slate-400"
+                placeholder="First name"
+                value={formData.firstName}
+                onChange={(e) =>
+                  setFormData({ ...formData, firstName: e.target.value })
+                }
+              />
+              <input
+                className="h-12 rounded-2xl border border-slate-300 px-4 text-sm outline-none ring-0 placeholder:text-slate-400"
+                placeholder="Last name"
+                value={formData.lastName}
+                onChange={(e) =>
+                  setFormData({ ...formData, lastName: e.target.value })
+                }
+              />
+              <input
+                className="h-12 rounded-2xl border border-slate-300 px-4 text-sm outline-none ring-0 placeholder:text-slate-400"
+                placeholder="Email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+              />
+              <input
+                className="h-12 rounded-2xl border border-slate-300 px-4 text-sm outline-none ring-0 placeholder:text-slate-400"
+                placeholder="Firm name"
+                value={formData.firm}
+                onChange={(e) =>
+                  setFormData({ ...formData, firm: e.target.value })
+                }
+              />
+              <button
+                type="button"
+                className="mt-2 rounded-2xl bg-sky-700 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800"
+              >
+                Request My Assessment
+              </button>
+            </form>
+            <p className="mt-4 text-sm leading-6 text-slate-500">
+              Confidential. No obligation. Intended for producers who want to
+              evaluate where added support could improve outcomes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-10 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+          <div>Elite Producer Group — A Simplicity Group Program</div>
+          <div>© 2026 Simplicity Group. All rights reserved.</div>
+        </div>
+      </section>
+    </div>
+  );
+}
