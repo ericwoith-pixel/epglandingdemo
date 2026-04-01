@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elite Producer Group | Producer Advantage Demo</title>
+  <meta name="description" content="See how Elite Producer Group by Simplicity can help life insurance producers unlock stronger carrier access, advanced case support, and practical growth opportunities." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,24 +13,30 @@
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <div class="brand">EPG Demo</div>
-      <a class="nav-cta" href="assessment.html">Take the Assessment</a>
+      <a class="brand" href="#top" aria-label="Elite Producer Group by Simplicity">
+        <img src="logo.png" alt="Elite Producer Group by Simplicity" class="brand-logo" />
+      </a>
+      <nav class="site-nav">
+        <a href="#benefits">Benefits</a>
+        <a href="#why-it-matters">Why It Matters</a>
+        <a href="#assessment" class="nav-cta">Take the Assessment</a>
+      </nav>
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Elite Producer Group</p>
-          <h1>Most producers don’t realize what they’re missing, do you?</h1>
-          <p class="subhead">
-            See how a producer group can help you unlock stronger carrier access, deeper case support,
-            better business planning, and more practical growth opportunities.
+          <p class="eyebrow">Elite Producer Group by Simplicity</p>
+          <h1>Most producers don’t realize what they’re missing. Do you?</h1>
+          <p class="hero-text">
+            See how a producer group can help life insurance producers unlock stronger carrier access,
+            deeper case support, better business planning, and more practical growth opportunities.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="assessment.html">Start the 2-Minute Assessment</a>
-            <a class="btn btn-secondary" href="#benefits">See the Benefits</a>
+            <a href="#assessment" class="button button-primary">Start the 2-Minute Assessment</a>
+            <a href="#benefits" class="button button-secondary">See the Benefits</a>
           </div>
           <ul class="hero-points">
             <li>Carrier relationships that can open more doors</li>
@@ -37,59 +44,54 @@
             <li>Access to growth resources many producers never tap into</li>
           </ul>
         </div>
-        <div class="hero-card">
-          <div class="stat-card">
+        <aside class="hero-panel">
+          <div class="panel-glow"></div>
+          <div class="hero-stat-card">
             <span class="stat-label">Producer Reality Check</span>
-            <span class="stat-number">3</span>
-            <p>Key areas where independent producers often leave opportunity on the table</p>
+            <h2>Key areas where independent producers often leave opportunity on the table</h2>
+            <div class="stat-list">
+              <div class="stat-item">
+                <span class="stat-name">Growth</span>
+                <p>New revenue ideas and business development support</p>
+              </div>
+              <div class="stat-item">
+                <span class="stat-name">Access</span>
+                <p>Better alignment with carrier and planning resources</p>
+              </div>
+              <div class="stat-item">
+                <span class="stat-name">Efficiency</span>
+                <p>Less trial-and-error, more leverage</p>
+              </div>
+              <div class="stat-item">
+                <span class="stat-name">Quick Fit Test</span>
+                <p>Answer a few questions and see where EPG could add value</p>
+              </div>
+            </div>
           </div>
-          <div class="mini-grid">
-            <div class="mini-card">
-              <strong>Growth</strong>
-              <span>New revenue ideas and business development support</span>
-            </div>
-            <div class="mini-card">
-              <strong>Access</strong>
-              <span>Better alignment with carrier and planning resources</span>
-            </div>
-            <div class="mini-card">
-              <strong>Efficiency</strong>
-              <span>Less trial-and-error, more leverage</span>
-            </div>
-            <div class="mini-card accent">
-              <strong>Quick Fit Test</strong>
-              <span>Answer a few questions and see where EPG could add value</span>
-            </div>
-          </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <section id="benefits" class="section section-light">
+    <section class="section section-benefits" id="benefits">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Why this matters</p>
-          <h2>Many producers operate without realizing how much leverage they could have.</h2>
-          <p>
-            The right producer group can help you compete more effectively, uncover new opportunities,
-            and support bigger, more sophisticated cases without having to build everything yourself.
-          </p>
+          <p class="eyebrow">Why producers explore EPG</p>
+          <h2>Cleaner access to the resources, support, and strategic leverage many producers build too late.</h2>
         </div>
-
         <div class="benefit-grid">
-          <article class="benefit-card">
+          <article class="info-card">
             <h3>Broader carrier access</h3>
             <p>Gain access to more solutions and stronger alignment with key carrier relationships.</p>
           </article>
-          <article class="benefit-card">
+          <article class="info-card">
             <h3>Advanced case support</h3>
             <p>Get help with complex planning, underwriting strategy, and high-value opportunities.</p>
           </article>
-          <article class="benefit-card">
+          <article class="info-card">
             <h3>Business growth resources</h3>
             <p>Tap into ideas, tools, and peer insights that can help grow production and enterprise value.</p>
           </article>
-          <article class="benefit-card">
+          <article class="info-card">
             <h3>More strategic positioning</h3>
             <p>Build a more durable, scalable practice that is better positioned for the future.</p>
           </article>
@@ -97,32 +99,102 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container split-panel">
+    <section class="section section-dark" id="why-it-matters">
+      <div class="container two-column-copy">
         <div>
+          <p class="eyebrow">Why this matters</p>
+          <h2>Many producers operate without realizing how much leverage they could have.</h2>
+        </div>
+        <div>
+          <p>
+            The right producer group can help you compete more effectively, uncover new opportunities,
+            and support bigger, more sophisticated cases without having to build everything yourself.
+          </p>
+          <p>
+            This demo is designed to show how EPG by Simplicity can frame that value in a clearer,
+            more producer-friendly way.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section assessment-section" id="assessment">
+      <div class="container assessment-shell">
+        <div class="assessment-intro">
           <p class="eyebrow">Simple next step</p>
           <h2>Take the assessment and see where your opportunities may be.</h2>
           <p>
             This quick demo assessment is built to spark the right conversation. It highlights where a producer
             group relationship may help create more value in your business.
           </p>
-        </div>
-        <div class="panel-card">
-          <div class="panel-list">
-            <div>
-              <strong>Time required</strong>
-              <span>About 2 minutes</span>
-            </div>
-            <div>
-              <strong>Format</strong>
-              <span>Short multiple-choice self-assessment</span>
-            </div>
-            <div>
-              <strong>Outcome</strong>
-              <span>Clearer sense of where EPG might fit</span>
-            </div>
+          <div class="assessment-meta">
+            <div><span>Time required</span><strong>About 2 minutes</strong></div>
+            <div><span>Format</span><strong>Short multiple-choice self-assessment</strong></div>
+            <div><span>Outcome</span><strong>Clearer sense of where EPG might fit</strong></div>
           </div>
-          <a class="btn btn-primary btn-block" href="assessment.html">Launch Assessment</a>
+        </div>
+
+        <div class="assessment-card">
+          <form id="assessmentForm">
+            <div class="form-grid">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your name" required>
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@example.com" required>
+              </label>
+              <label class="full-width">
+                <span>Phone</span>
+                <input type="tel" name="phone" placeholder="(555) 555-5555" required>
+              </label>
+            </div>
+
+            <div class="question-block">
+              <p>1. Which best describes your primary business focus?</p>
+              <label><input type="radio" name="focus" value="life" required> Primarily life insurance</label>
+              <label><input type="radio" name="focus" value="mixed"> Life insurance plus adjacent lines</label>
+              <label><input type="radio" name="focus" value="other"> More diversified financial practice</label>
+            </div>
+
+            <div class="question-block">
+              <p>2. How would you describe your current production level?</p>
+              <label><input type="radio" name="production" value="emerging" required> Building momentum</label>
+              <label><input type="radio" name="production" value="established"> Established and growing</label>
+              <label><input type="radio" name="production" value="advanced"> Advanced producer seeking more leverage</label>
+            </div>
+
+            <div class="question-block">
+              <p>3. Where would additional support make the biggest impact?</p>
+              <label><input type="checkbox" name="needs" value="carrier"> Carrier access</label>
+              <label><input type="checkbox" name="needs" value="case"> Advanced case design</label>
+              <label><input type="checkbox" name="needs" value="growth"> Business growth ideas</label>
+              <label><input type="checkbox" name="needs" value="positioning"> Long-term practice positioning</label>
+            </div>
+
+            <button type="submit" class="button button-primary full-button">See My Results</button>
+          </form>
+
+          <div id="resultsCard" class="results-card hidden" aria-live="polite">
+            <p class="eyebrow">Assessment results</p>
+            <h3>You appear to be a strong fit for Elite Producer Group.</h3>
+            <p>
+              Based on your responses, EPG may be able to add value through stronger carrier alignment,
+              practical planning support, and resources that help scale production more strategically.
+            </p>
+            <div class="results-list">
+              <div>
+                <span>Potential value area</span>
+                <strong>Carrier and case support leverage</strong>
+              </div>
+              <div>
+                <span>Likely next conversation</span>
+                <strong>Growth opportunities within your current practice</strong>
+              </div>
+            </div>
+            <button type="button" id="resetButton" class="button button-secondary full-button">Retake Assessment</button>
+          </div>
         </div>
       </div>
     </section>
@@ -130,9 +202,11 @@
 
   <footer class="site-footer">
     <div class="container footer-wrap">
-      <span>Demo concept for internal review</span>
-      <a href="assessment.html">Go to Assessment</a>
+      <p>Demo concept for internal review</p>
+      <a href="#assessment">Go to Assessment</a>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
