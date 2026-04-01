@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EPG Assessment Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="assessment-body">
+  <header class="site-header compact">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">← EPG Demo</a>
+      <span class="nav-note">Assessment Experience</span>
+    </div>
+  </header>
+
+  <main class="assessment-main">
+    <div class="container assessment-shell">
+      <section class="assessment-intro">
+        <p class="eyebrow">Quick self-assessment</p>
+        <h1>Could your practice be getting more from a producer group?</h1>
+        <p>
+          Answer a few short questions to identify where added support, access, and strategic alignment
+          could help strengthen your business.
+        </p>
+      </section>
+
+      <section class="assessment-card">
+        <form id="assessmentForm">
+          <div class="question-block">
+            <label for="q1">1. How would you describe your current access to carrier and case design resources?</label>
+            <select id="q1" name="q1" required>
+              <option value="">Select one</option>
+              <option value="1">Limited, mostly self-directed</option>
+              <option value="2">Adequate, but could be stronger</option>
+              <option value="3">Strong and well supported</option>
+            </select>
+          </div>
+
+          <div class="question-block">
+            <label for="q2">2. How often do you pursue advanced or complex opportunities that require extra support?</label>
+            <select id="q2" name="q2" required>
+              <option value="">Select one</option>
+              <option value="3">Frequently</option>
+              <option value="2">Sometimes</option>
+              <option value="1">Rarely</option>
+            </select>
+          </div>
+
+          <div class="question-block">
+            <label for="q3">3. Which best describes your current growth strategy?</label>
+            <select id="q3" name="q3" required>
+              <option value="">Select one</option>
+              <option value="1">Mostly organic, limited outside support</option>
+              <option value="2">Some structure, but room to improve</option>
+              <option value="3">Clear strategy with support resources in place</option>
+            </select>
+          </div>
+
+          <div class="question-block">
+            <label for="q4">4. How important is long-term enterprise value and practice positioning to you?</label>
+            <select id="q4" name="q4" required>
+              <option value="">Select one</option>
+              <option value="3">Very important</option>
+              <option value="2">Somewhat important</option>
+              <option value="1">Not a major focus today</option>
+            </select>
+          </div>
+
+          <div class="question-block">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" />
+          </div>
+
+          <div class="question-block">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">See My Result</button>
+        </form>
+
+        <div id="result" class="result-card hidden" aria-live="polite"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
